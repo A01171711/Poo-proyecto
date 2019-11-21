@@ -66,6 +66,7 @@ public class BattleScene extends Scene {
 		//borderPane.setCenter(battleLabel);
 		HBox hboxBotones= new HBox();
 		Button atacarButton= new Button("Atacar");
+		Button HabilidadB = new Button ("Habilidad");
 
 		atacarButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
@@ -100,7 +101,9 @@ public class BattleScene extends Scene {
 
 /*/
 		hboxBotones.getChildren().add(atacarButton);
+		hboxBotones.getChildren().add(HabilidadB);
 		hboxBotones.setMargin(atacarButton, new Insets(600,0,25,320));
+		hboxBotones.setMargin(HabilidadB, new Insets(600,0,25,300));
 		//hboxBotones.getChildren().add(mochila);
 		borderPane.setBottom(hboxBotones);
 	}
