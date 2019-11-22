@@ -1,17 +1,17 @@
 import javafx.secene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Alfajor extends HeredarHeroe{
+public class Hamburguesa extends HeredarHeroe{
 
-	public Alfajor(){
-		super("Alfajor", 1000, 74, 62,"Imagenes/Alfajor.png");
+	public Hamburguesa(){
+		super("Hamburguesa", 1000, 70, 80,"Imagenes/Hamburguesa.png");
 
 		Habilidad[] habilidades = new Habilidad[1];
 		habilidades[0] = new Habilidad("",0); 
 	}
 
 	public void atacar(Personajes enemigo){
-		System.out.println("el Alfajor ataca");
+		System.out.println("la Hamburguesa ataca");
 		enemigo.setHP(enemigo.getHP()-(getAtaque()-enemigo.getDefensa()));
 	}
 
