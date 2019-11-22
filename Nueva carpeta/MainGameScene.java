@@ -9,39 +9,39 @@ public class MainGameScene extends Scene{
 
 	private Main main;
 	private Mapa m;
-	private Objeto[] correa;
-   private  int index=0;
+	private Objeto[] bolsaMandado;
+	private  int index=0;
 	int i;
 	public MainGameScene(Main main){
 		super(new GridPane(),1200, 700);
-		correa= new Objeto[10];
+		bolsaMandado= new Objeto[10];
 		this.main=main;
 		GridPane gridPane=(GridPane)super.getRoot();
-		gridPane.add(new Label(main.getPerrosSuper().getNombre()),0,0);
+		gridPane.add(new Label(main.HeredarHeroe().getNombre()),0,0);
 		m= new Mapa(main,"Mapa 1",24,14);
 		gridPane.add(m,0,1);
-		gridPane.add(new Label("Prueba"),0,2);
+		//gridPane.add(new Label("Prueba"),0,2);
         setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                PerrosSuper sp= main.getPerrosSuper();
-                m.getCasillas()[sp.getX()][sp.getY()].setPerrosSuper(null);
+                PerrosSuper sp= main.getHeredarHeroe();
+                m.getCasillas()[sp.getX()][sp.getY()].setHeredarHeroe(null);
                 try{
                     switch (event.getCode()) {
                         case UP:
-                            m.getCasillas()[sp.getX()][sp.getY()-1].getPerrosSuper();
+                            m.getCasillas()[sp.getX()][sp.getY()-1].getHeredarHeroe();
                             sp.setY(sp.getY()-1);
                             break;
                         case DOWN:
-                            m.getCasillas()[sp.getX()][sp.getY()+1].getPerrosSuper();
+                            m.getCasillas()[sp.getX()][sp.getY()+1].getHeredarHeroe();
                             sp.setY(sp.getY()+1);
                             break;
                         case LEFT:
-                            m.getCasillas()[sp.getX()-1][sp.getY()].getPerrosSuper();
+                            m.getCasillas()[sp.getX()-1][sp.getY()].getHeredarHeroe();
                             sp.setX(sp.getX()-1);
                             break;
                         case RIGHT:
-                            m.getCasillas()[sp.getX()+1][sp.getY()].getPerrosSuper();
+                            m.getCasillas()[sp.getX()+1][sp.getY()].getHeredarHeroe();
                             sp.setX(sp.getX()+1);
                             break;
                     }
@@ -50,7 +50,7 @@ public class MainGameScene extends Scene{
                 }
 
                 checarCasilla(m.getCasillas()[sp.getX()][sp.getY()]);
-                m.getCasillas()[sp.getX()][sp.getY()].setPerrosSuper(sp);
+                m.getCasillas()[sp.getX()][sp.getY()].setHeredarHeroe(sp);
 
                 if(sp.getX()==m.getCasillas().length-1&&sp.getY()==m.getCasillas()[0].length-1){
                 	gridPane.getChildren().remove(m);
@@ -69,21 +69,21 @@ public class MainGameScene extends Scene{
     }
     private void checarCasilla(Casilla casilla){
 
-        if(casilla.getPerrosMalos()!=null){
-            main.openBattle(main.getPerrosSuper(),casilla.getPerrosMalos(),this);
+        if(casilla.getEnemigo()!=null){
+            main.openBattle(main.getHeredarHeroe(),casilla.getEnemigo(),this);
         }
 				if(casilla.getCofre()!=null){
-					main.openSurprise(main.getPerrosSuper(), main.getRotweiller(),main.getObjeto(),this);
-                    main.getRotweiller().setHp(200);
+					main.openSurprise(main.getHeredarHeroe(), main.getAlfajor(),main.getObjeto(),this);
+                    main.getAlfajor().setHp(200);
 
 				}
 				if(casilla.getObjeto()!=null){
 
-                    main.getPerrosSuper().getCorrea();
-                    main.getPerrosSuper().addObjetoToCorrea(casilla.getObjeto(), index);
+                    main.getHeredarHeroe().getbolsaMandado();
+                    main.getHeredarHeroe().addObjetoTobolsaMandado(casilla.getObjeto(), index);
 					index++;
                     casilla.setObjeto(null);
-										main.getPerrosSuper().vida(main.getPerrosSuper());
+										main.getHeredarHeroe().vida(main.getHeredarHeroe());
 
 
 
@@ -92,11 +92,11 @@ public class MainGameScene extends Scene{
 
 
 
-            System.out.println(" " +main.getPerrosSuper().imprimeInventario());
+            System.out.println(" " +main.getHeredarHeroe().imprimeInventario());
 
         }
 				if(casilla.getNivel()!=null){
-					main.openNivel(main.getPerrosSuper(), main.getBoss(),this);
+					main.openNivel(main.getHeredarHeroe(), main.getBoss(),this);
 
 
 				}

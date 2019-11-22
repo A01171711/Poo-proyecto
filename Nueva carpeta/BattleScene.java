@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 
 
 
+
 public class BattleScene extends Scene {
 	private PerrosMalos personaje2;
 	private PerrosSuper personaje1;
