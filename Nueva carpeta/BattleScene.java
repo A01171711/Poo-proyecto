@@ -87,6 +87,13 @@ public class BattleScene extends Scene {
 				}
 			}
 		});
+		
+		HabilidadB.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent eh){
+				
+				
+			}
+		});
 		/*/
 		Button mochila=new Button(" ");
 		mochila.setStyle("-fx-background-image:url('assets/mochila.png');");
@@ -102,7 +109,7 @@ public class BattleScene extends Scene {
 /*/
 		hboxBotones.getChildren().add(atacarButton);
 		hboxBotones.getChildren().add(HabilidadB);
-		hboxBotones.setMargin(atacarButton, new Insets(600,0,25,320));
+		hboxBotones.setMargin(atacarButton, new Insets(600,0,25,150));
 		hboxBotones.setMargin(HabilidadB, new Insets(600,0,25,300));
 		//hboxBotones.getChildren().add(mochila);
 		borderPane.setBottom(hboxBotones);
