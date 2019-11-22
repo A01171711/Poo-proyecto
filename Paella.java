@@ -4,7 +4,7 @@ import javafx.scene.image.ImageView;
 public class Paella extends HeredarHeroe{
 
 	public Paellla(){
-		super("Paella",0,0,0,"Imagenes/Paella.png");
+		super("Paella", 1000, 64, 74,"Imagenes/Paella.png");
 
 		Habilidad[] habilidades = new Habilidad[1];
 		habilidades[0] = new Habilidad("",0); 
