@@ -62,8 +62,6 @@ public class BattleScene extends Scene {
 		heroVbox.setMargin(popo2, new Insets(125,0,0,170));
 
 		borderPane.setRight(enemyVbox);
-		//battleLabel= new Label("La batalla entre: "+personaje1.getNombre()+" y "+personaje2.getNombre()+" va a comenzar" );
-		//borderPane.setCenter(battleLabel);
 		HBox hboxBotones= new HBox();
 		Button atacarButton= new Button("Atacar");
 		Button HabilidadB = new Button ("Habilidad");
@@ -71,7 +69,6 @@ public class BattleScene extends Scene {
 		atacarButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				personaje1.atacar(personaje2);
-				//battleLabel.setText(battleLabel.getText()+"\n"+personaje1.getNombre()+" atacó...");
 				enemyStats.setText(personaje2.toString());
 				if(personaje2.getHp()<=0){
 					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setPerrosMalos(null);
@@ -79,7 +76,6 @@ public class BattleScene extends Scene {
 
 				}
 				personaje2.atacar(personaje1);
-				//battleLabel.setText(battleLabel.getText()+"\n"+personaje2.getNombre()+" atacó...");
 				heroStats.setText(personaje1.toString());
 				if(personaje1.getHp()<=0){
 					main.openEnd();
@@ -91,22 +87,9 @@ public class BattleScene extends Scene {
 		HabilidadB.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent eh){
 				
-				
-			}
-		});
-		/*/
-		Button mochila=new Button(" ");
-		mochila.setStyle("-fx-background-image:url('assets/mochila.png');");
-		mochila.setMinHeight(50);
-		mochila.setMinWidth(50);
-		mochila.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
-			public void handle(MouseEvent e){
-				main.openMochila();
-
 			}
 		});
 
-/*/
 		hboxBotones.getChildren().add(atacarButton);
 		hboxBotones.getChildren().add(HabilidadB);
 		hboxBotones.setMargin(atacarButton, new Insets(600,0,25,150));
